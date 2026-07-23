@@ -1,0 +1,17 @@
+{
+  "name": "attendance-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack attendance automation system",
+  "scripts": {
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
