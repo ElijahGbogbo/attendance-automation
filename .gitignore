@@ -64,7 +64,8 @@ Desktop.ini
 # Editors & IDEs
 # ==========================================================
 
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .idea/
 
 # Uncomment if you use JetBrains IDEs

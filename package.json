@@ -6,12 +6,15 @@
   "scripts": {
     "client": "npm run dev --prefix client",
     "server": "npm run dev --prefix server",
-    "dev": "concurrently \"npm run client\" \"npm run server\""
+    "dev": "concurrently \"npm run client\" \"npm run server\"", 
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^10.0.3"
+    "concurrently": "^10.0.3",
+    "prettier": "^3.9.6"
   }
 }
