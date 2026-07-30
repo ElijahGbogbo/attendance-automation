@@ -1,48 +1,15 @@
-import {useRef, useState} from "react"
 import './App.css'
+import type {JSX} from "react";
+import FileUpload from "./components/FileUpload.tsx";
 
-function App() {
-  const [isDragging, setIsDragging] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault()
-    setIsDragging(true)
-  }
-  const handleDragLeave = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault()
-    setIsDragging(false)
-  } 
-  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault()
-  }
-
-  function handleFileSelect(event: React.ChangeEvent<HTMLInputElement>) {
-    const zoomFile = event.target.files?.[0]
-    console.log(zoomFile);
-  }
+function App(): JSX.Element {
   return (
     <main className="main-content">
       <div className="logo-title-container">
-        <img src="./img/Alive-Mentorship-School-Logo.jpg" alt="Alive Mentorship School Logo" />
+        <img src="./img/Alive-Mentorship-School-Logo.jpg" alt="Alive Mentorship School Logo" className="school-logo" />
         <h1>Attendance Automation</h1>
       </div>
-      <input 
-        type="file"
-        accept=".xlsx, .xls"
-        ref={fileInputRef}
-        onChange={handleFileSelect}
-        hidden
-      />
-      <div
-        className="upload-section"
-        onClick={() => fileInputRef.current?.click()}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-        >
-          <p>Drag & Drop your Zoom attendance file here</p>
-          <p>or click to browse</p>
-      </div>
+      <FileUpload />
     </main>
   )
 }
