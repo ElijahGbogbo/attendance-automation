@@ -1,5 +1,5 @@
 import './App.css'
-import type {JSX} from "react";
+import type {JSX} from "react";  // Imported React
 import FileUpload from "./components/FileUpload.tsx";
 
 function App(): JSX.Element {
