@@ -1,5 +1,9 @@
-.main-content {
+.main-content, .logo-title-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.school-logo {
+    margin: 30px 0px 10px 0px
 }
