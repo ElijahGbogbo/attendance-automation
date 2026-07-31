@@ -1,4 +1,4 @@
-import {useRef, useState} from "react"
+import {useRef, useState} from "react"  // Imported React
 import './App.css'
 
 function App() {
