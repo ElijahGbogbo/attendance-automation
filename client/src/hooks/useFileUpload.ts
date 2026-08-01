@@ -2,15 +2,21 @@ import {useRef, useState} from "react"
 import {validateExcel} from "../utils/validateExcel"
 
 export function useFileUpload() {
+    const [error, setError] = useState<string | null>(null)
     const [selectedFile, setSelectedFile] = useState<File | null>(null)
     const [isDragging, setIsDragging] = useState(false)
     const fileInputRef = useRef<HTMLInputElement>(null)
 
+    function closeError(): void {
+        setError(null)
+    }
+
     function processFile(file: File) {
         if (!validateExcel(file)) {
-            alert("Please upload a valid Excel file (.xlsx or .xls).")
+            setError("Please upload a valid Excel file (.xlsx or .xls).")
             return
         }
+        setError(null)
         setSelectedFile(file)
     }
 
@@ -37,9 +43,11 @@ export function useFileUpload() {
 
     return (
         {
+            error, 
             fileInputRef,
             selectedFile,
-            isDragging,  
+            isDragging, 
+            closeError, 
             handleFileSelect, 
             handleDragOver, 
             handleDragLeave, 
