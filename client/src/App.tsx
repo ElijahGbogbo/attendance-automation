@@ -7,7 +7,9 @@ function App(): JSX.Element {
   return (
     <main className="main-content">
       <Header />
-      <FileUpload />
+      <form className="upload-form">
+        <FileUpload />
+      </form>
     </main>
   )
 }

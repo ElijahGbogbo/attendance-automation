@@ -3,12 +3,15 @@ import type {JSX} from "react";
 import { FiUploadCloud } from "react-icons/fi";
 import { FaCheckCircle } from "react-icons/fa";
 import {useFileUpload} from "../hooks/useFileUpload";
+import ErrorDialog from "./ErrorDialog";
 
 function FileUpload(): JSX.Element {
     const {
+        error, 
         fileInputRef,
         selectedFile,
-        isDragging,  
+        isDragging, 
+        closeError, 
         handleFileSelect, 
         handleDragOver, 
         handleDragLeave, 
@@ -32,6 +35,7 @@ function FileUpload(): JSX.Element {
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
             >
+                {error && <ErrorDialog message={error} onClose={closeError} />} 
                 {
                 selectedFile ?
                 (<p><FaCheckCircle className="success-icon" /> {selectedFile.name}</p>) :
