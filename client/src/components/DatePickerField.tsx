@@ -8,7 +8,7 @@ type DatePickerFieldProps = {
 
 function DatePickerField({dateValue, onDateChange}: DatePickerFieldProps): JSX.Element {
     return (
-        <div className="class-date-cont">
+        <div className="form-group">
             <label htmlFor="classDate">Please Select the Class Date</label>
             <input 
               id="classDate"
