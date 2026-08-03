@@ -2,9 +2,16 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import FileUpload from "./FileUpload";
 import userEvent from "@testing-library/user-event";
 
+import { vi, beforeEach } from "vitest";
+const mockOnFileSelect = vi.fn();
+
 describe("FileUpload", () => {
+    beforeEach(() => {
+        mockOnFileSelect.mockClear();
+    });
+
     it("renders the upload instructions", () => {
-        render(<FileUpload />);
+        render(<FileUpload onFileSelect={mockOnFileSelect} />);
 
         expect(screen.getByText(/drag & drop your zoom attendance/i)).toBeInTheDocument();
 
@@ -13,7 +20,7 @@ describe("FileUpload", () => {
 
     it("accepts a valid Excel file", async () => {
         const user = userEvent.setup();
-        render(<FileUpload />);
+        render(<FileUpload onFileSelect={mockOnFileSelect} />);
 
         const input = screen.getByLabelText(/upload attendance file/i) as HTMLInputElement;
         const file = new File(["dummy content"], "ZoomAttendance.xlsx", {
@@ -29,7 +36,7 @@ describe("FileUpload", () => {
         const alertSpy = vi.spyOn(window, "alert").mockImplementation(() => {});
 
         const user = userEvent.setup();
-        render(<FileUpload />);
+        render(<FileUpload onFileSelect={mockOnFileSelect} />);
 
         const input = screen.getByLabelText(/upload attendance file/i) as HTMLInputElement;
         const file = new File(["hello world"], "notes.pdf", {
@@ -43,7 +50,7 @@ describe("FileUpload", () => {
     })
 
     it("adds dragging class while dragging", () => {
-        const {container} = render(<FileUpload />);
+        const {container} = render(<FileUpload onFileSelect={mockOnFileSelect} />);
 
         const uploadZone = container.querySelector(".upload-section")!;
 
@@ -53,7 +60,7 @@ describe("FileUpload", () => {
     })
 
     it("removes dragging class on drag leave", () => {
-        const {container} = render(<FileUpload />);
+        const {container} = render(<FileUpload onFileSelect={mockOnFileSelect} />);
 
         const uploadZone = container.querySelector(".upload-section")!;
 
@@ -64,7 +71,7 @@ describe("FileUpload", () => {
     })
 
     it("accepts a dropped Excel file", () => {
-        render(<FileUpload />);
+        render(<FileUpload onFileSelect={mockOnFileSelect} />);
 
         const uploadZone = screen.getByText(/drag & drop/i).closest(".upload-section")!
 

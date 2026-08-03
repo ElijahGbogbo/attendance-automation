@@ -1,4 +1,5 @@
 import type {JSX} from "react";
+import "../styles/GoogleSheetInput.css";
 
 type GoogleSheetInputProps = {
     sheetUrl: string;
@@ -7,8 +8,8 @@ type GoogleSheetInputProps = {
 
 function GoogleSheetInput({sheetUrl, onSheetUrlChange}: GoogleSheetInputProps): JSX.Element {
     return (
-        <div className="form-group">
-            <label htmlFor="sheetUrl">Please Paste The Google Sheet Link To The Attendance List</label>
+        <div className="form-group-url">
+            <label htmlFor="sheetUrl">Please Paste The  Attendance Google Sheet Link</label>
             <input 
               id="sheetUrl"
               type="url" 
