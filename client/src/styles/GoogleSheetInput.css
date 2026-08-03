@@ -1,0 +1,21 @@
+.form-group-url {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    align-items: start;
+}
+
+.form-group-url label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+#sheetUrl {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 4px;
+}
+
+#sheetUrl:focus {
+    outline: none;
+}

@@ -1,0 +1,15 @@
+.attendance-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto 30px auto;
+}
+
+.attendance-form .mark-button {
+    width: 40%;
+    align-self: center;
+    padding: 8px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+}

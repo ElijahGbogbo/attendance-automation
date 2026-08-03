@@ -1,5 +1,5 @@
-import {useState} from "react";
-import type {JSX} from "react";
+import {useState, type JSX} from "react";
+import "../styles/ServiceAccountField.css";
 
 const SERVICE_ACCOUNT_EMAIL = "alive-attendance-automation@mentorship-attendance-system.iam.gserviceaccount.com"
 
@@ -13,19 +13,20 @@ function ServiceAccountField(): JSX.Element {
     }
 
     return (
-        <div className="form-group">
+        <div className="form-group-readonly">
             <label>Google Service Account Email</label>
             <div className="copy-field">
                 <input 
-                value={SERVICE_ACCOUNT_EMAIL}
-                readOnly
+                  className="service-account-input"
+                  value={SERVICE_ACCOUNT_EMAIL}
+                  readOnly
                 />
                 <button type="button" onClick={handleCopy}>
                     {copied ? "Copied!" : "Copy"}
                 </button>
             </div>
             <p className="helper-text">
-                Grant this email Editor access to the Google Sheet before marking attendance.
+                Grant this email Editor-access to the Google Sheet before marking attendance.
             </p>
         </div>
     )

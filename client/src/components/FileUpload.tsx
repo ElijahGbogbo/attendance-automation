@@ -5,7 +5,11 @@ import { FaCheckCircle } from "react-icons/fa";
 import {useFileUpload} from "../hooks/useFileUpload";
 import ErrorDialog from "./ErrorDialog";
 
-function FileUpload(): JSX.Element {
+export interface UploadedFileProps {
+    onFileSelect: (file: File | null) => void;
+}
+
+function FileUpload({ onFileSelect }: UploadedFileProps): JSX.Element {
     const {
         error, 
         fileInputRef,
@@ -17,7 +21,9 @@ function FileUpload(): JSX.Element {
         handleDragLeave, 
         handleDrop
     } = useFileUpload()
-    
+
+    onFileSelect(selectedFile)
+
     return (
         <>
             <input 
