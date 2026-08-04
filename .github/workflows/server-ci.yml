@@ -17,6 +17,7 @@ on:
       - 'server/**'
       - '.github/workflows/server-ci.yml'
 
+
 jobs:
   lint-and-build:
     name: Lint and build server
