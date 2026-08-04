@@ -22,7 +22,6 @@ jobs:
     name: Lint and build server
     runs-on: ubuntu-latest
 
-```
     defaults:
       run:
         working-directory: server
@@ -46,5 +45,4 @@ jobs:
 
       - name: Build TypeScript
         run: npm run build
-```
 
