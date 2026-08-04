@@ -1,6 +1,7 @@
 .upload-section {
     width: 100%;
     max-width: 600px;
+    align-self: center;
     padding: 3rem 2rem;
     border: 2px dashed #CBD5E1;
     border-radius: 16px;
