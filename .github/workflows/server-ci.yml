@@ -3,8 +3,8 @@ name: Server CI
 on:
   push:
     branches:
-      - main
-      - develop
+      - main       // This branch is for Production deployment
+      - develop    // This branch is for Development deployment
     paths:
       - 'server/**'
       - '.github/workflows/server-ci.yml'
@@ -17,12 +17,12 @@ on:
       - 'server/**'
       - '.github/workflows/server-ci.yml'
 
+
 jobs:
   lint-and-build:
     name: Lint and build server
     runs-on: ubuntu-latest
 
-```
     defaults:
       run:
         working-directory: server
@@ -46,5 +46,4 @@ jobs:
 
       - name: Build TypeScript
         run: npm run build
-```
 

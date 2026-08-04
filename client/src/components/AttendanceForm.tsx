@@ -7,7 +7,7 @@ import FileUpload from "./FileUpload.tsx";
 import {markAttendance} from "../services/attendanceApi.ts";
 
 function AttendanceForm(): JSX.Element {
-    const [zoomFile, setZoomFile] = useState<File | null>(null);
+    const [zoomFile, setZoomFile] = useState<File | null>(null);    // This matches the file type for the Zoom file upload
     const [classDate, setClassDate] = useState<string>("");
     const [urlSheetVal, setSheetUrl] = useState<string>("");
 
