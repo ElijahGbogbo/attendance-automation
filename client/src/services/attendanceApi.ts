@@ -7,7 +7,7 @@ export async function markAttendance(
     classDate: string
 ): Promise<AttendanceResponse> {
     const api = axios.create({
-        baseURL: "http://localhost:5000/api", 
+        baseURL: "http://localhost:3000/api", 
     })
 
     const formData = new FormData()
