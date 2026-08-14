@@ -1,17 +1,7 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import { env } from "./config/env.ts"
+import app from "./app.ts";
 
-import express from 'express'
-const app = express()
 
-app.get('/health', (_req, res) => {
-  res.json({
-    status: 'ok',
-  })
-})
-
-const PORT = Number(process.env.PORT ?? 3000)
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+app.listen(env.PORT, () => {
+  console.log(`Server running on port ${env.PORT}`)
 })
