@@ -1,8 +1,8 @@
-import type { Request, Response } from "express";
+import type { Request, Response } from 'express'
 
-export function notFound(req: Request, res: Response) {
-    res.status(404).json({
+export function notFound(_req: Request, res: Response) {
+  res.status(404).json({
     success: false,
-    message: "Route does not exist."
+    message: 'Route does not exist.',
   })
 }

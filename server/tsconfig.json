@@ -32,9 +32,9 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true, 
-    "allowImportingTsExtensions": true, 
-    "emitDeclarationOnly": true, 
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
