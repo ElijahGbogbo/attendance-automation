@@ -1,5 +1,5 @@
 import { GoogleAuth } from 'google-auth-library'
-import { env } from '../config/env.ts'
+import { env } from './env.ts'
 
 const auth = new GoogleAuth({
   keyFile: env.GOOGLE_APPLICATION_CREDENTIALS,

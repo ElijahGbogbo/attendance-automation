@@ -2,14 +2,16 @@ import * as XLSX from 'xlsx'
 import type { Request, Response, NextFunction } from 'express'
 
 interface ProcessAttendanceProps {
-  classDate: string
+  // worksheet: XLSX.WorkSheet
+  fileBuffer: Buffer
+  formattedDate: string
   spreadSheetId: string
-  attendeeSet: Set<string>
+  // attendeeSet: Set<string>
 }
 
 interface ParsedZoomAttendanceProps {
-  workbook: XLSX.WorkBook
-  worksheet: XLSX.WorkSheet
+  // workbook: XLSX.WorkBook
+  // worksheet: XLSX.WorkSheet
   attendeeSet: Set<string>
 }
 
@@ -21,9 +23,15 @@ interface ReadSpreadSheetProcessingProps {
 interface UpdateSpreadSheetAttendanceProps {
   studentNames: string[][]
   attendeeSet: Set<string>
-  classDate: string
+  formattedDate: string
   spreadSheetId: string
   firstGoogleSheetName: string
+}
+
+interface UpdateZoomAttendanceProps {
+  worksheet: XLSX.WorkSheet
+  studentNames: string[][]
+  attendeeSet: Set<string>
 }
 
 type AsyncHandler = (req: Request, res: Response, next: NextFunction) => Promise<unknown>
@@ -33,5 +41,6 @@ export type {
   ProcessAttendanceProps,
   ParsedZoomAttendanceProps,
   ReadSpreadSheetProcessingProps,
-  UpdateSpreadSheetAttendanceProps,
+  UpdateSpreadSheetAttendanceProps, 
+  UpdateZoomAttendanceProps
 }

@@ -1,7 +1,7 @@
 import type { ErrorRequestHandler } from 'express'
 import { CustomAPIError } from '../errors/customErrorHandler.ts'
 
-export const errorHandler: ErrorRequestHandler = (err, _req, res) => {
+export const errorHandler: ErrorRequestHandler = (err, _req, res, next) => {
   if (err instanceof CustomAPIError) {
     return res.status(err.statusCode).json({
       success: false,
