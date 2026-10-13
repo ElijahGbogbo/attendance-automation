@@ -4,6 +4,6 @@ import upload from '../middleware/uploadMiddleware.ts'
 
 const attendanceRoutes = express.Router()
 
-attendanceRoutes.post('/attendance/mark', upload.single('zoomField'), markAttendance)
+attendanceRoutes.post('/attendance/mark', upload.single('zoomFile'), markAttendance)
 
 export default attendanceRoutes

@@ -1,8 +1,8 @@
 import "../styles/ErrorDialog.css"
 import type {JSX} from "react"
-import type {ErrorDialogProps} from "../types/error"
+import type {DialogBoxProps} from "../types/dialogBox"
 
-function ErrorDialog({message, onClose}: ErrorDialogProps): JSX.Element {
+function ErrorDialog({message, onClose}: DialogBoxProps): JSX.Element {
     return (
         <div className="dialog-overlay">
             <div className="dialog-box">

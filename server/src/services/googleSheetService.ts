@@ -21,7 +21,7 @@ async function readGoogleSpreadSheetNames({
 async function updateGoogleSpreadSheetAttendance({
   studentNames,
   attendeeSet,
-  classDate,
+  formattedDate,
   spreadSheetId,
   firstGoogleSheetName,
 }: UpdateSpreadSheetAttendanceProps) {
@@ -36,8 +36,6 @@ async function updateGoogleSpreadSheetAttendance({
       const teamNum = sampleArray[0] + ' ' + String(index)
       if (teamNum === nameVal) {
         return [sampleArray[0]?.toUpperCase() + ' ' + String(index)]
-      } else {
-        break
       }
     }
 
@@ -45,25 +43,28 @@ async function updateGoogleSpreadSheetAttendance({
       return ['Present']
     }
 
-    let trueCount = 0
+    let isPresent = false
     for (const attendee of attendeeSet) {
+      let trueCount = 0
       const referenceArray = attendee.split(' ')
       for (const sampleUnit of sampleArray) {
         const boolArray = referenceArray.map((elem) => {
           return elem === sampleUnit
         })
-        if (boolArray.length === 0) {
+        const trueLength = boolArray.filter((boolVal) => boolVal === true).length
+        if (trueLength === 0) {
           continue
         }
         trueCount++
       }
       if (trueCount >= 2) {
+        isPresent = true
         break
       } else {
         continue
       }
     }
-    const statusVal = trueCount >= 2 ? ['Present'] : ['Absent']
+    const statusVal = isPresent ? ['Present'] : ['Absent']
     return statusVal
   })
 
@@ -73,10 +74,10 @@ async function updateGoogleSpreadSheetAttendance({
   })
   const headers = headerResponse.data.values?.[0] ?? []
   const columnIndex = headers.findIndex((headR) => {
-    return headR === classDate
+    return headR === formattedDate
   })
   if (columnIndex === -1) {
-    throw createCustomError(`Date ${classDate} not found in header row`, 400)
+    throw createCustomError(`Date ${formattedDate} not found in header row`, 400)
   }
 
   const columnLetter = columnToLetter(columnIndex)

@@ -1,7 +1,7 @@
 import {useState, type JSX} from "react";
 import "../styles/ServiceAccountField.css";
 
-const SERVICE_ACCOUNT_EMAIL = "alive-attendance-automation@mentorship-attendance-system.iam.gserviceaccount.com"
+const SERVICE_ACCOUNT_EMAIL = import.meta.env.VITE_GOOGLE_SERVICE_ACCOUNT_EMAIL as string
 
 function ServiceAccountField(): JSX.Element {
     const [copied, setCopied] = useState<boolean>(false)

@@ -1,29 +1,28 @@
 import {useRef, useState} from "react"
 import {validateExcel} from "../utils/validateExcel"
 
-export function useFileUpload() {
-    const [error, setError] = useState<string | null>(null)
-    const [selectedFile, setSelectedFile] = useState<File | null>(null)
+export function useFileUpload(onFileSelect: (file: File | null) => void) {
     const [isDragging, setIsDragging] = useState(false)
     const fileInputRef = useRef<HTMLInputElement>(null)
+    const [error, setError] = useState<string | null>(null)
 
-    function closeError(): void {
-        setError(null)
-    }
-
-    function processFile(file: File) {
+    function processFile(file: File, onFileSelect: (file: File | null) => void) {
         if (!validateExcel(file)) {
             setError("Please upload a valid Excel file (.xlsx or .xls).")
             return
         }
         setError(null)
-        setSelectedFile(file)
+        onFileSelect(file)
+    }
+
+    function closeError(): void {
+        setError(null)
     }
 
     function handleFileSelect(event: React.ChangeEvent<HTMLInputElement>) {
         const zoomFile = event.target.files?.[0]
         if (!zoomFile) return
-        processFile(zoomFile)
+        processFile(zoomFile, onFileSelect)
     }
     function handleDragOver(event: React.DragEvent<HTMLDivElement>) {
         event.preventDefault()
@@ -37,17 +36,16 @@ export function useFileUpload() {
         event.preventDefault()
         const zoomFile = event.dataTransfer.files[0]
         if (!zoomFile) return
-        processFile(zoomFile)
+        processFile(zoomFile, onFileSelect)
         setIsDragging(false)
     }
 
     return (
         {
             error, 
-            fileInputRef,
-            selectedFile,
-            isDragging, 
             closeError, 
+            fileInputRef, 
+            isDragging, 
             handleFileSelect, 
             handleDragOver, 
             handleDragLeave, 
