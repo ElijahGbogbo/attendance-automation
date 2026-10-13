@@ -23,7 +23,7 @@
 //         }
 //       })
 //       if (studentNameIsPresent) return;
-      
+
 //       let isPresent = false;
 //       for (const arrNameVal of studentNames) {
 //         let trueCount = 0;
@@ -52,4 +52,3 @@
 //     })
 //     insertAttendanceColumn(worksheet, attendanceStatus)
 //   }
-

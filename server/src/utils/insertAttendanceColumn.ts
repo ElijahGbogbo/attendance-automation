@@ -1,7 +1,7 @@
 // import * as XLSX from "xlsx";
 
 // export function insertAttendanceColumn(
-//     worksheet: XLSX.WorkSheet, 
+//     worksheet: XLSX.WorkSheet,
 //     attendanceStatus: string[][]): XLSX.WorkSheet {
-        
+
 //     }

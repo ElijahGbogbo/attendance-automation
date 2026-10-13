@@ -8,15 +8,12 @@ import {
 // import { updateZoomAttendanceExcelFile } from "./zoomExcelFileService.ts"
 
 const processAttendance = async ({
-  fileBuffer, 
-  formattedDate, 
-  spreadSheetId
+  fileBuffer,
+  formattedDate,
+  spreadSheetId,
 }: ProcessAttendanceProps) => {
-
   // workbook, worksheet
-  const {
-    attendeeSet
-  } = await parseZoomAttendance(fileBuffer)
+  const { attendeeSet } = await parseZoomAttendance(fileBuffer)
 
   const firstGoogleSheetName = await getFirstGoogleSheetName(spreadSheetId)
   const nameRange = firstGoogleSheetName + '!A3:A'
@@ -26,7 +23,7 @@ const processAttendance = async ({
     attendeeSet,
     formattedDate,
     spreadSheetId,
-    firstGoogleSheetName
+    firstGoogleSheetName,
   })
   // await updateZoomAttendanceExcelFile({worksheet, studentNames, attendeeSet})
 }

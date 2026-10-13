@@ -18,7 +18,7 @@ const parseZoomAttendance = async (fileBuffer: Buffer): Promise<ParsedZoomAttend
     attendeeSet.add(normalizedName)
   }
   return {
-    attendeeSet
+    attendeeSet,
   }
 }
 

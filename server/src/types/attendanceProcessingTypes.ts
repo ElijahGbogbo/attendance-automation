@@ -1,5 +1,5 @@
 import * as XLSX from 'xlsx'
-import type { Request, Response, NextFunction } from 'express'
+import type { Request, Response } from 'express'
 
 interface ProcessAttendanceProps {
   // worksheet: XLSX.WorkSheet
@@ -34,13 +34,13 @@ interface UpdateZoomAttendanceProps {
   attendeeSet: Set<string>
 }
 
-type AsyncHandler = (req: Request, res: Response, next: NextFunction) => Promise<unknown>
+type AsyncHandler = (req: Request, res: Response) => Promise<unknown>
 
 export type {
   AsyncHandler,
   ProcessAttendanceProps,
   ParsedZoomAttendanceProps,
   ReadSpreadSheetProcessingProps,
-  UpdateSpreadSheetAttendanceProps, 
-  UpdateZoomAttendanceProps
+  UpdateSpreadSheetAttendanceProps,
+  UpdateZoomAttendanceProps,
 }

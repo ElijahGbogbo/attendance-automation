@@ -42,23 +42,23 @@ async function updateGoogleSpreadSheetAttendance({
     if (attendeeSet.has(nameVal)) {
       return ['Present']
     }
-    
-    let isPresent = false;
+
+    let isPresent = false
     for (const attendee of attendeeSet) {
-      let trueCount = 0;
+      let trueCount = 0
       const referenceArray = attendee.split(' ')
       for (const sampleUnit of sampleArray) {
         const boolArray = referenceArray.map((elem) => {
           return elem === sampleUnit
         })
-        const trueLength = boolArray.filter((boolVal) => boolVal === true).length;
+        const trueLength = boolArray.filter((boolVal) => boolVal === true).length
         if (trueLength === 0) {
           continue
         }
         trueCount++
       }
       if (trueCount >= 2) {
-        isPresent = true;
+        isPresent = true
         break
       } else {
         continue
