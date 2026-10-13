@@ -14,8 +14,7 @@ function DatePickerField({dateValue, onDateChange}: DatePickerFieldProps): JSX.E
               id="classDate"
               type="date"
               value={dateValue}
-              onChange={(e) => onDateChange(e.target.value)} 
-              required
+              onChange={(e) => onDateChange(e.target.value)}
             />
         </div>
     )

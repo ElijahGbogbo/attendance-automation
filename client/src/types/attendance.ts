@@ -1,8 +1,8 @@
-// export interface AttendanceFormData {
-//     zoomFile: File;
-//     sheetUrl: string;
-//     classDate: string;
-// }
+export interface AttendanceFormData {
+    zoomFile: File | null;
+    classDate: string;
+    urlSheetVal: string;
+}
 
 export interface AttendanceResponse {
     success: boolean;

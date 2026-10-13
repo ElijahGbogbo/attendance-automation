@@ -23,7 +23,13 @@ export default [
     },
     rules: {
       'prettier/prettier': 'error',
-      'no-console': 'off',
+      'no-console': 'off', 
+      '@typescript-eslint/no-unused-vars': [
+        'error', 
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   eslintConfigPrettier,

@@ -15,8 +15,7 @@ function GoogleSheetInput({sheetUrl, onSheetUrlChange}: GoogleSheetInputProps): 
               type="url" 
               placeholder="https://docs.google.com/spreadsheets/d/..."
               value={sheetUrl}
-              onChange={(e) => onSheetUrlChange(e.target.value)} 
-              required
+              onChange={(e) => onSheetUrlChange(e.target.value)}
             />
         </div>
     )
